@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить товар</title>
+<link rel="stylesheet" href="http://localhost:8000/static/css/style.css">
+</head>
+<body>
+{% extends "crud/index.html" %}
+{% block content %}
+    <body class="container2">
+        <h1>Добавить товар</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.title }}<br>
+                <br>
+                {{ form.description }}<br>
+                <br>
+                {{ form.price }}<br>
+                <br>
+                {{ form.url }}<br>
+                <br>
+                <button type="submit" class="btn btn-success">Добавить</button>
+                <span>{{ error }}</span>
+            </form>
+    </body>
+{% endblock %}
+</body>
+</html>

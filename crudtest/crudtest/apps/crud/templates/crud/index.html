@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ассортимент товаров</title>
+    <link rel="stylesheet" href="http://localhost:8000/static/css/style.css">
+</head>
+<body>
+    <div class = 'navbar'>
+    <a href = 'http://localhost:8000'>Главная</a>
+    <a href = 'http://localhost:8000/add'>Добавить товар</a>
+    </div>
+{% block content %}
+    <div class="container">
+        {% if products.count > 0 %}
+        <h1>Список товаров</h1>
+        <table>
+            <tr><th>Наименование товара</th><th>Цена товара(руб)</th><th>Описание товара</th><th>URL для покупки</th></tr>
+            {% for products in products %}
+            <tr><td>{{ products.title }}</td><td>{{ products.price }}</td><td>{{ products.description }}</td><td>{{ products.url }}</a></td></tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+{% endblock %}
+</body>
+</html>
